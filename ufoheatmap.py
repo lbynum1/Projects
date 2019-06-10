@@ -10,7 +10,7 @@ places = []
 dic = {}
 final = []
 
-out = open("bynum_lashawnda_cities.txt", "wb")
+output = open("bynum_lashawnda_cities.txt", "wb")
 
 url = requests.get("http://www.nuforc.org/webreports/ndxevent.html")
 soup = BeautifulSoup(url.text, "html.parser")
@@ -30,7 +30,6 @@ for i in range(1, len(row)):
     for record in soup_2.findAll('tr'):
         location.append([record.text])
 
-
 for i in location[1:]:
     for element in i:
         data = element.split("\n")
@@ -44,11 +43,11 @@ for i in range(0, len(places)):
     else:
         dic[places[i]] = 1
 
-
 for a,b in dic.items():
     string = a + " " + str(b)
     final.append(string)
 fin = '\n'.join(final)
+
 
 
 key = open("bynum_lashawnda_cities.txt", "rb")
