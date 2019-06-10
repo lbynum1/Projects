@@ -18,13 +18,13 @@ for a in cities:
 
     for line in data.text.splitlines():
         if num == 1:
-            d = line.split(",")
-            lat = d[6]
-            lat = lat.replace('"', '')
-            lon = d[7]
-            lon = lon.replace('"', '')
-            print(a + "\n" + "Lat:" + lat + "," + "Lon:" + lon + "\n")
+           d = line.split(",")
+           lat = d[6]
+           lat = lat.replace('"', '')
+           lon = d[7]
+           lon = lon.replace('"', '')
+           print(a + "\n" + "Lat:" + lat + "," + "Lon:" + lon + "\n")
 
-        num = num + 1
+       num = num + 1
 
 cities.close()
