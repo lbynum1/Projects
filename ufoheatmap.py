@@ -1,5 +1,4 @@
 import requests
-import pickle
 from bs4 import BeautifulSoup
 
 html = []
@@ -8,7 +7,7 @@ places = []
 final = []
 dic = {}
 
-where = open("sight.txt", "wb")
+out = open("sight.txt", "w")
 
 # page with all the url links
 main = requests.get("http://www.nuforc.org/webreports/ndxevent.html")
@@ -40,7 +39,7 @@ for i in html[1:]:
         places.append(cities)
 
 # this counts the number of reports in each city and state
-for i in range(0,len(places)):
+for i in range(1,len(places)):
     if places[i] in dic:
         dic[places[i]] += 1
 
@@ -49,13 +48,6 @@ for i in range(0,len(places)):
 
 # this enables a tab between the reports and each city and state
 for a,b in dic.items():
-    string = a + " " + str(b)
-    final.append(string)
-finalj = '\n'.join(final)
+    out.write("{} \t {}" "\n".format(a,b))
 
-go = open("sight.txt", "rb")
-pickle.dump(finalj, where)
-b = pickle.load(go)
-print(b)
-
-where.close()
+out.close()
