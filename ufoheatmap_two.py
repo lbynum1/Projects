@@ -2,10 +2,11 @@ import requests
 
 places = []
 again = []
+all = []
 
 file = open("sight.txt", "r")
 
-feel = open("sight_new.txt", "w")
+lalon = open("sightlatlon.txt", "w")
 
 for a in file:
     places.append(a)
@@ -27,9 +28,9 @@ for i in range(0,len(again)):
         lon = d[7]
         lo = lon.replace('"', '')
 
-        print(again[i][0] + "\n"+ "Lat:" + lat + "," + "Lon:" + lon + "\n")
-        feel.write(again[i][0] + "\n"+ "Lat:" + lat + "," + "Lon:" + lon + "\n")
+        print("Lat:" + la + "," + "Lon:" + lo + "\n" + again[i][1])
+        lalon.write("Lat:" + la + "," + "Lon:" + lo + "\n" + again[i][1])
 
 
 file.close()
-feel.close()
+lalon.close()
